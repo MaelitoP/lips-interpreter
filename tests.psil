@@ -1,13 +1,7 @@
 ;;; Fichier des tests.              -*- mode: lisp-data; coding: utf-8 -*-
 
-; Philippe Gabriel - Dana Seif Eddine
-
-; Test 1 - Expression let sans déclarations
-; Résultat - 5 : Lint
 (let 5)
 
-; Test 2 - Valeur d'une fonction
-; Résultat - <fun> : Larw Lint (Larw Lboo (Larw Lint (Ltup [Lint,Lint])))
 (let
     (f
         (Int -> (Bool -> (Int -> (Tuple Int Int))))
@@ -16,8 +10,6 @@
             (tuple (call (call / x) z) (call (call - x) z)))))
       f)
 
-; Test 3 - Déclarations avec références avant et après
-; Résultat - False : Lboo
 (let (x 5)
      (y Int 10)
      (not (x Bool) Bool (if x false true))
@@ -32,15 +24,9 @@
                true false)
            Bool))
 
-; Test 4 - Tuples comme variables
-; Résultat - 42 : Lint
-
 (let (x (tuple double * 7))
     (double ((Int -> (Int -> Int)) -> (Int -> Int)) (fun op x (call op x x)))
   (call - (hastype (fetch x (double op num) (call double op num)) Int) 7))
-
-; Test 5 - Inférence de types, détection de mismatch
-; Résultat - [1 True] : *** Exception: Type mismatch: Ltup [Lint,Lboo] != Lint
 
 (let (exp (Tuple Int Bool) (if cond (tuple 1 true)
         (fetch (tuple + 15 12) (f x y) (call f x y))))
