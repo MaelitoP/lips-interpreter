@@ -27,7 +27,7 @@
 ## About The Project
 
 This tutorial aims at improving the understanding of functional languages by using a functional programming language (Haskell) and by writing a part of an interpreter of a functional programming language (a kind of Lisp).
-You can find the instructions [here](https://github.com/MaelitoP/lips-interpreter/blob/main/instruction.pdf).
+You can find the instructions [here](https://github.com/MaelitoP/lips-interpreter/blob/main/psil.pdf).
 
 <!-- LICENSE -->
 ## License
