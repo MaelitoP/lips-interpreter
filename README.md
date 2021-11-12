@@ -27,6 +27,7 @@
 ## About The Project
 
 This tutorial aims at improving the understanding of functional languages by using a functional programming language (Haskell) and by writing a part of an interpreter of a functional programming language (a kind of Lisp).
+You can find the instructions [here](https://twitter.com/Maelito_P).
 
 <!-- LICENSE -->
 ## License
@@ -38,10 +39,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Maël LE PETIT - [@Maelito_P](https://twitter.com/Maelito_P) - contact@maelito.fr
 
-Project Link: [https://github.com/MaelitoP/genetic-inheritance](https://github.com/MaelitoP/genetic-inheritance)
+Project Link: [https://github.com/MaelitoP/lips-interpreter](https://github.com/MaelitoP/lips-interpreter)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/MaelitoP/genetic-inheritance/blob/main/LICENSE
+[license-url]: https://github.com/MaelitoP/lips-interpreter/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/maelitop/
