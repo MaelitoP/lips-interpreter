@@ -1,0 +1,52 @@
+;;; Fichier des tests.              -*- mode: lisp-data; coding: utf-8 -*-
+
+; Philippe Gabriel - Dana Seif Eddine
+
+; Test 1 - Expression let sans déclarations
+; Résultat - 5 : Lint
+(let 5)
+
+; Test 2 - Valeur d'une fonction
+; Résultat - <fun> : Larw Lint (Larw Lboo (Larw Lint (Ltup [Lint,Lint])))
+(let
+    (f
+        (Int -> (Bool -> (Int -> (Tuple Int Int))))
+        (fun x y z (if y
+            (tuple (call * x z) (call + x z))
+            (tuple (call (call / x) z) (call (call - x) z)))))
+      f)
+
+; Test 3 - Déclarations avec références avant et après
+; Résultat - False : Lboo
+(let (x 5)
+     (y Int 10)
+     (not (x Bool) Bool (if x false true))
+     (true (call = 0 0))
+     (false (call = 0 1))
+     (and (x Bool) (y Bool) Bool
+        (hastype (if x (hastype (if y true false) Bool) false) Bool))
+    (hastype (if
+        (call and
+            (call <= (hastype (fetch (tuple x y) (x y) (call * x y)) Int) 42)
+            (call not (call (call = x) y)))
+               true false)
+           Bool))
+
+; Test 4 - Tuples comme variables
+; Résultat - 42 : Lint
+
+(let (x (tuple double * 7))
+    (double ((Int -> (Int -> Int)) -> (Int -> Int)) (fun op x (call op x x)))
+  (call - (hastype (fetch x (double op num) (call double op num)) Int) 7))
+
+; Test 5 - Inférence de types, détection de mismatch
+; Résultat - [1 True] : *** Exception: Type mismatch: Ltup [Lint,Lboo] != Lint
+
+(let (exp (Tuple Int Bool) (if cond (tuple 1 true)
+        (fetch (tuple + 15 12) (f x y) (call f x y))))
+      (not (x Bool) Bool (if x false true))
+      (false (call (call = 0) 1))
+      (true (call = 0 0))
+      (or (Bool Bool -> Bool) (fun x y (if x true (if y true false))))
+      (cond (call or (call not true) (call not false)))
+      exp)
