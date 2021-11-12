@@ -3,7 +3,7 @@
 
 <br />
 <p align="center">
-  <h3 align="center">Lips Interpreter in Haskell</h3>
+  <h3 align="center">Psil Interpreter in Haskell</h3>
   <p align="center"> Programming Language Concepts Course Project #1 </p>
 </p>
 
