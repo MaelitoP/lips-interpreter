@@ -50,19 +50,15 @@ data Sexp = Snil                        -- La liste vide
 pChar :: Char -> Parser ()
 pChar c = do { _ <- char c; return () }
 
--- Les commentaires commencent par un point-virgule et se terminent
--- à la fin de la ligne.
 pComment :: Parser ()
 pComment = do { pChar ';'; _ <- many (satisfy (\c -> not (c == '\n')));
                 pChar '\n'; return ()
               }
--- N'importe quelle combinaison d'espaces et de commentaires est considérée
--- comme du blanc.
+
 pSpaces :: Parser ()
 pSpaces =
     do { _ <- many (do { _ <- space ; return () } <|> pComment); return () }
 
--- Un nombre entier est composé de chiffres.
 integer     :: Parser Int
 integer = do c <- digit
              integer' (digitToInt c)
